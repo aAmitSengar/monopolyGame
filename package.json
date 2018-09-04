@@ -1,0 +1,14 @@
+{
+  "name": "full-stack-monopoly",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "http-server"
+  },
+  "author": "Amit Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {}
+}
