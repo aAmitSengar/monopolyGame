@@ -54,7 +54,7 @@ function citytax() {
 		buttonAonclick = 'hide("popupbackground"); hide("popupwrap"); var p=player[turn]; addalert(p.name+" paid $200 for landing on City Tax."); p.pay(200, 0);';
 		buttonBonclick = ' hide("popupbackground"); hide("popupwrap"); var p=player[turn]; var cost=p.money; for(var i=0; i<40; i++){sq=square[i]; if(sq.owner==turn) { if(sq.mortgage) { cost+=sq.price*0.5; } else { cost+=sq.price; } cost+=(sq.house*sq.houseprice); } } cost*=0.1; cost=Math.round(cost); addalert(p.name+" paid $"+cost+" for landing on City Tax."); p.pay(cost,0);';
 
-		popup("You landed on City Tax. You must pay $200 or ten percent of your total worth.<div><input type='button' value='Pay $200' onclick='" + buttonAonclick + "' /><input type='button' value='Pay 10%' onclick='" + buttonBonclick + "' /></div>", false);
+		popup("You landed on City Tax. You must pay $200 or ten percent of your total worth.<div><input type='button' class='button' value='Pay $200' onclick='" + buttonAonclick + "' /><input type='button' class='button' value='Pay 10%' onclick='" + buttonBonclick + "' /></div>", false);
 	} else {
 		addalert(p.name + " paid $200 for landing on City Tax.");
 		p.pay(200, 0);

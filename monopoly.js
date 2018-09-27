@@ -100,7 +100,7 @@ function Game() {
 			currentbidder -= pcount;
 		}
 
-		popup("<div style='font-weight: bold; font-size: 16px; margin-bottom: 10px;'>Auction <span id='propertyname'></span></div><div>Highest Bid = $<span id='highestbid'></span> (<span id='highestbidder'></span>)</div><div><span id='currentbidder'></span>, it is your turn to bid.</div<div><input id='bid' title='Enter an amount to bid on " + s.name + ".' style='width: 291px;' /></div><div><input type='button' value='Bid' onclick='game.auctionBid();' title='Place your bid.' /><input type='button' value='Pass' title='Skip bidding this time.' onclick='game.auctionPass();' /><input type='button' value='Exit Auction' title='Stop bidding on " + s.name + " altogether.' onclick='if (confirm(\"Are you sure you want to stop bidding on this property altogether?\")) game.auctionExit();' /></div>", "blank");
+		popup("<div style='font-weight: bold; font-size: 16px; margin-bottom: 10px;'>Auction <span id='propertyname'></span></div><div>Highest Bid = $<span id='highestbid'></span> (<span id='highestbidder'></span>)</div><div><span id='currentbidder'></span>, it is your turn to bid.</div<div><input id='bid' title='Enter an amount to bid on " + s.name + ".' style='width: 291px;' /></div><div><input type='button' value='Bid' class='button' onclick='game.auctionBid();' title='Place your bid.' /><input type='button' class='button' value='Pass' title='Skip bidding this time.' onclick='game.auctionPass();' /><input type='button' class='button' value='Exit Auction' title='Stop bidding on " + s.name + " altogether.' onclick='if (confirm(\"Are you sure you want to stop bidding on this property altogether?\")) game.auctionExit();' /></div>", "blank");
 
 		document.getElementById("propertyname").innerHTML = "<a href='javascript:void(0);' onmouseover='showdeed(" + auctionproperty + ");' onmouseout='hidedeed();' class='statscellcolor'>" + s.name + "</a>";
 		document.getElementById("highestbid").innerHTML = "0";
@@ -1270,7 +1270,7 @@ function popup(HTML, action, option) {
 
 		// Ok
 	} else if (option !== "blank") {
-		$("#popuptext").append("<div><input type='button' value='OK' id='popupclose' /></div>");
+		$("#popuptext").append("<div><input type='button' class='button' value='OK' id='popupclose' /></div>");
 		$("#popupclose").focus();
 
 		$("#popupclose").on("click", function () {
@@ -1726,7 +1726,7 @@ function chanceCommunityChest() {
 			communityChestCards.deck.splice(communityChestCards.index, 1);
 		}
 
-		popup("<img src='images/community_chest_icon.png' style='height: 50px; width: 53px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Community Chest:</div><div style='text-align: justify;'>" + communityChestCards[communityChestIndex].text + "</div>", function () {
+		popup("<img src='images/community_chest_icon.png' style='height: 50px; width: 53px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Community Chest:</div><div style='text-align: center; margin-top: 20px; margin-bottom: 70px;'>" + communityChestCards[communityChestIndex].text + "</div>", function () {
 			communityChestAction(communityChestIndex);
 		});
 
@@ -1745,7 +1745,7 @@ function chanceCommunityChest() {
 			chanceCards.deck.splice(chanceCards.index, 1);
 		}
 
-		popup("<img src='images/chance_icon.png' style='height: 50px; width: 26px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Chance:</div><div style='text-align: justify;'>" + chanceCards[chanceIndex].text + "</div>", function () {
+		popup("<img src='images/chance_icon.png' style='height: 50px; width: 26px; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Chance:</div><div style='text-align: center; margin-top: 20px; margin-bottom: 70px;'>" + chanceCards[chanceIndex].text + "</div>", function () {
 			chanceAction(chanceIndex);
 		});
 
@@ -2313,7 +2313,7 @@ function land(increasedRent) {
 				buy();
 			}
 		} else {
-			document.getElementById("landed").innerHTML = "<div>You landed on <a href='javascript:void(0);' onmouseover='showdeed(" + p.position + ");' onmouseout='hidedeed();' class='statscellcolor'>" + s.name + "</a>.<input type='button' onclick='buy();' value='Buy ($" + s.price + ")' title='Buy " + s.name + " for " + s.pricetext + ".'/></div>";
+			document.getElementById("landed").innerHTML = "<div>You landed on <a href='javascript:void(0);' onmouseover='showdeed(" + p.position + ");' onmouseout='hidedeed();' class='statscellcolor'>" + s.name + "</a>.<input type='button' class='button' onclick='buy();' value='Buy ($" + s.price + ")' title='Buy " + s.name + " for " + s.pricetext + ".'/></div>";
 		}
 
 
@@ -2579,10 +2579,10 @@ function play() {
 
 	if (p.jail) {
 		$("#landed").show();
-		document.getElementById("landed").innerHTML = "You are in jail.<input type='button' title='Pay $50 fine to get out of jail immediately.' value='Pay $50 fine' onclick='payfifty();' />";
+		document.getElementById("landed").innerHTML = "You are in jail.<input type='button' class='button' title='Pay $50 fine to get out of jail immediately.' value='Pay $50 fine' onclick='payfifty();' />";
 
 		if (p.communityChestJailCard || p.chanceJailCard) {
-			document.getElementById("landed").innerHTML += "<input type='button' id='gojfbutton' title='Use &quot;Get Out of Jail Free&quot; card.' onclick='useJailCard();' value='Use Card' />";
+			document.getElementById("landed").innerHTML += "<input type='button' class='button' id='gojfbutton' title='Use &quot;Get Out of Jail Free&quot; card.' onclick='useJailCard();' value='Use Card' />";
 		}
 
 		document.getElementById("nextbutton").title = "Roll the dice. If you throw doubles, you will get out of jail.";
